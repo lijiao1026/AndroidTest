@@ -22,12 +22,11 @@ public final class R {
         public static int item_touch_helper_previous_elevation = 0x7f0c000d;
     }
     public static final class styleable {
-        public static int[] RecyclerView = { 0x010100f1, 0x010100c4, 0x7f040001, 0x7f040002, 0x7f040003, 0x7f040004 };
-        public static int RecyclerView_android_descendantFocusability = 0;
-        public static int RecyclerView_android_orientation = 1;
-        public static int RecyclerView_layoutManager = 2;
-        public static int RecyclerView_reverseLayout = 3;
-        public static int RecyclerView_spanCount = 4;
-        public static int RecyclerView_stackFromEnd = 5;
+        public static int[] RecyclerView = { 0x010100c4, 0x7f040001, 0x7f040002, 0x7f040003, 0x7f040004 };
+        public static int RecyclerView_android_orientation = 0;
+        public static int RecyclerView_layoutManager = 1;
+        public static int RecyclerView_reverseLayout = 2;
+        public static int RecyclerView_spanCount = 3;
+        public static int RecyclerView_stackFromEnd = 4;
     }
 }

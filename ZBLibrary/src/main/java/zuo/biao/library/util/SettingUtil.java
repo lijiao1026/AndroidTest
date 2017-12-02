@@ -30,7 +30,7 @@ public final class SettingUtil {
 	public static final boolean isReleased = false;//应用已发布
 
 	/**建议改成你自己项目的路径*/
-	public static final String APP_SETTING = "SHARE_PREFS_" + "APP_SETTING";
+	public static final String APP_SETTING = "AppPower";
 
 	private SettingUtil() {/*不能实例化**/}
 
@@ -237,7 +237,7 @@ public final class SettingUtil {
 	/**
 	 * TODO 改为你的测试服务器地址,如果有的话
 	 */
-	public static final String URL_SERVER_ADDRESS_TEST = "https://github.com/TommyLemon/Android-ZBLibrary";//测试服务器
+	public static final String URL_SERVER_ADDRESS_TEST = "127.0.0.1:8080";//测试服务器
 
 	/**获取当前服务器地址
 	 * isHttps = false

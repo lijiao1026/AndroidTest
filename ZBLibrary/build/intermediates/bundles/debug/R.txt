@@ -556,10 +556,9 @@ int style translucentAnimation 0x7f1600a2
 int style tv_remind 0x7f1600a3
 int style wrap_match 0x7f1600a4
 int style wrap_wrap 0x7f1600a5
-int[] styleable RecyclerView { 0x010100f1, 0x010100c4, 0x7f040001, 0x7f040002, 0x7f040003, 0x7f040004 }
-int styleable RecyclerView_android_descendantFocusability 0
-int styleable RecyclerView_android_orientation 1
-int styleable RecyclerView_layoutManager 2
-int styleable RecyclerView_reverseLayout 3
-int styleable RecyclerView_spanCount 4
-int styleable RecyclerView_stackFromEnd 5
+int[] styleable RecyclerView { 0x010100c4, 0x7f040001, 0x7f040002, 0x7f040003, 0x7f040004 }
+int styleable RecyclerView_android_orientation 0
+int styleable RecyclerView_layoutManager 1
+int styleable RecyclerView_reverseLayout 2
+int styleable RecyclerView_spanCount 3
+int styleable RecyclerView_stackFromEnd 4
