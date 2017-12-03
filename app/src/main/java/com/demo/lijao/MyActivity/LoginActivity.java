@@ -21,6 +21,7 @@ import com.demo.lijao.test.R;
 import com.demo.lijao.util.HttpRequest;
 
 import zuo.biao.library.base.BaseActivity;
+import zuo.biao.library.base.BaseApplication;
 import zuo.biao.library.interfaces.OnBottomDragListener;
 import zuo.biao.library.interfaces.OnHttpResponseListener;
 import zuo.biao.library.util.StringUtil;
@@ -58,6 +59,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         initView();
         initData();
         initEvent();
+
         HttpRequest.translate("library", 0, new OnHttpResponseListener() {
 
             @Override
