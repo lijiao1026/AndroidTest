@@ -4,29 +4,32 @@ package com.demo.lijao.MyActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
+
 
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.demo.lijao.test.R;
 import com.demo.lijao.util.HttpRequest;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import zuo.biao.library.base.BaseActivity;
-import zuo.biao.library.base.BaseApplication;
 import zuo.biao.library.interfaces.OnBottomDragListener;
 import zuo.biao.library.interfaces.OnHttpResponseListener;
 import zuo.biao.library.util.StringUtil;
 
-
+/**
+ * 登录
+ *
+ */
 public class LoginActivity extends BaseActivity implements View.OnClickListener, OnBottomDragListener,TextWatcher,OnHttpResponseListener {
 
     private static final String TAG = "LoginActivity";
@@ -60,18 +63,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         initData();
         initEvent();
 
-        HttpRequest.translate("library", 0, new OnHttpResponseListener() {
 
-            @Override
-            public void onHttpResponse(int requestCode, String resultJson, Exception e) {
-                showShortToast("测试Http请求:翻译library结果为\n" + resultJson);
-            }
-        });
-       /* if (SettingUtil.isOnTestMode) {
-            showShortToast("测试服务器\n" + HttpRequest.URL_BASE);
-        }
-
-
+       /*
         //仅测试用
         HttpRequest.translate("library", 0, new OnHttpResponseListener() {
 
@@ -156,7 +149,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     showShortToast("请输入正确的手机号码");break;
                 }
 
-               // HttpRequest.login(userNameText.getText().toString(),passwordText.getText().toString(),0,this);
+                HttpRequest.login(userNameText.getText().toString(),passwordText.getText().toString(),0,this);
             default:
                 break;
         }
@@ -240,7 +233,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void onHttpResponse(int requestCode, String resultJson, Exception e) {
     switch (requestCode){
-        case 0:showShortToast(resultJson);break;
+        case 0:
+            //showShortToast(resultJson);
+            try {
+                JSONObject json=new JSONObject(resultJson);
+                boolean isTrue=json.getBoolean("result");
+                if(isTrue){
+                    showShortToast("登录成功");
+
+                    startActivity(MainActivity.createIntent(context).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    overridePendingTransition(R.anim.bottom_push_in, R.anim.hold);
+
+                    enterAnim = exitAnim = R.anim.null_anim;
+                    finish();
+                }else {
+                    showShortToast("帐号或密码错误");
+                }
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
         default:break;
     }
     }

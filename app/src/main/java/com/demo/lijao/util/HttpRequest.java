@@ -72,7 +72,7 @@ public class HttpRequest {
     public static final String CURRENT_USER_ID = "currentUserId";
 
     public static final String NAME = "name";
-    public static final String PHONE = "phone";
+    public static final String PHONE = "mobile";
     public static final String PASSWORD = "password";
     public static final String AUTH_CODE = "authCode";
 
@@ -111,9 +111,10 @@ public class HttpRequest {
                              final int requestCode, final OnHttpResponseListener listener) {
         List<Parameter> paramList = new ArrayList<Parameter>();
         addExistParameter(paramList, PHONE, phone);
-        addExistParameter(paramList, PASSWORD, MD5Util.MD5(password));
-        Log.d("requestUrl",URL_BASE + "user/Login");
-        HttpManager.getInstance().post(paramList, URL_BASE + "user/Login", requestCode, listener);
+        //addExistParameter(paramList, PASSWORD, MD5Util.MD5(password));
+        addExistParameter(paramList, PASSWORD, password);
+        Log.d("requestUrl",URL_BASE + "appAddedTask/login.action");
+        HttpManager.getInstance().post(paramList, URL_BASE + "appAddedTask/login.action", requestCode, listener);
 
     }
 
